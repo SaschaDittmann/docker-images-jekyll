@@ -18,7 +18,7 @@ ENV RUBYOPT=-W0
 ENV JEKYLL_VERSION="~> 4.3.3"
 ENV JEKYLL_VAR_DIR=/var/jekyll
 ENV JEKYLL_DATA_DIR=/srv/jekyll
-ENV JEKYLL_BIN=/usr/local/bundle/bin/jekyll
+ENV JEKYLL_BIN=/usr/jekyll/bin
 ENV JEKYLL_ENV=development
 
 # EnvVars System
@@ -74,6 +74,9 @@ RUN mkdir -p $JEKYLL_VAR_DIR \
     && chown -R jekyll:jekyll $JEKYLL_DATA_DIR \
     && chown -R jekyll:jekyll $JEKYLL_VAR_DIR \
     && chown -R jekyll:jekyll $BUNDLE_HOME
+
+COPY copy /usr/jekyll/bin
+RUN chmod 755 $JEKYLL_BIN/*
 
 CMD ["jekyll", "--help"]
 WORKDIR /srv/jekyll
