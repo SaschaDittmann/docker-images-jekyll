@@ -10,8 +10,10 @@ ARG USER_GID=$USER_UID
 
 # EnvVars Ruby
 ENV BUNDLE_HOME=/usr/local/bundle
+ENV BUNDLE_APP_CONFIG=/usr/local/bundle
 ENV BUNDLE_DISABLE_PLATFORM_WARNINGS=true
 ENV BUNDLE_BIN=/usr/local/bundle/bin
+ENV GEM_BIN=/usr/local/bin/gem
 ENV RUBYOPT=-W0
 
 # EnvVars Image
